@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { alchemy } from "../services/alchemy";
 import Loader from "../components/Loader";
+import TransactionHistory from "../components/TransactionHistory";
 
 export default function Account() {
   const { address: routeAddress } = useParams();
@@ -65,12 +66,19 @@ export default function Account() {
 
       {/* only show error after submit */}
       {hasSubmitted && error && <p className="text-red-500 mt-2">{error}</p>}
-
       {!loading && !error && balance && (
-        <div className="mt-3 p-3 border rounded">
-          <p><strong>Address:</strong> {address}</p>
-          <p><strong>Balance:</strong> {balance} wei</p>
-        </div>
+        <>
+          <div className="mt-3 p-3 border rounded">
+            <p>
+              <strong>Address:</strong> {address}
+            </p>
+            <p>
+              <strong>Balance:</strong> {balance} wei
+            </p>
+          </div>
+
+          <TransactionHistory address={address} />
+        </>
       )}
     </div>
   );
