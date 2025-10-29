@@ -6,6 +6,7 @@ import Account from "./pages/Account";
 import NFTExplorer from "./pages/NFTExplorer";
 import PendingTracker from "./pages/PendingTracker";
 import Navbar from "./components/Navbar";
+import NftDetail from "./pages/NftDetail";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/account" element={<Account />} />
           <Route path="/account/:address" element={<Account />} />
           <Route path="/nfts" element={<NFTExplorer />} />
+          <Route path="/nft/:contractAddress/:tokenId" element={<NftDetail />} />
           <Route path="/pending" element={<PendingTracker />} />
         </Routes>
       </main>
