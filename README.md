@@ -287,10 +287,9 @@ Good luck and have fun!
 - **Environment:** Node 18+
 
 ## 👨‍💻 Author
-Titan Aji Nurceha
-Developed as part of Alchemy University’s Week 3: Blockchain Explorer challenge.
-Enhanced to demonstrate real-time blockchain data, modular UI design,
-and developer-friendly WebSocket debugging.
+**Titan Aji Nurceha**<br>
+Developed as part of Alchemy University’s Week 3: Blockchain Explorer challenge.<br>
+Enhanced to demonstrate real-time blockchain data, modular UI design, and developer-friendly WebSocket debugging.
 
 ## 🧭 Summary
 This project demonstrates:
