@@ -42,7 +42,7 @@ export default function TransactionHistory({ address }) {
 
   return (
     <div className="mt-6">
-      <h3 className="text-lg font-semibold mb-2">Transaction History</h3>
+      <h3 className="text-xl font-semibold mb-3">Transaction History</h3>
 
       {transactions.length === 0 ? (
         <p>No transactions found for this address.</p>
@@ -51,7 +51,7 @@ export default function TransactionHistory({ address }) {
           {transactions.map((tx, idx) => (
             <li
               key={idx}
-              className="border rounded p-2 bg-gray-50 overflow-hidden"
+              className="border rounded p-4 bg-gray-50 mt-3 border-gray-500 overflow-hidden"
             >
               <p>
                 <strong>Hash:</strong>{" "}
@@ -59,7 +59,7 @@ export default function TransactionHistory({ address }) {
                   href={`https://etherscan.io/tx/${tx.hash}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
+                  className="text-blue-700 hover:underline"
                 >
                   {tx.hash.slice(0, 20)}...
                 </a>
@@ -75,7 +75,7 @@ export default function TransactionHistory({ address }) {
               </p>
               <button
                 onClick={() => navigate(`/tx/${tx.hash}`)}
-                className="mt-2 bg-blue-500 text-white px-2 py-1 rounded text-sm hover:bg-blue-600 transition"
+                className="mt-2 bg-blue-700 text-white px-4 py-1 rounded text-sm hover:bg-blue-800 transition"
               >
                 View Details
               </button>

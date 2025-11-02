@@ -1,4 +1,3 @@
-// src/pages/PendingTracker.jsx
 import { useEffect, useState } from "react";
 import { initWebSocketListeners } from "../services/websocket";
 import Loader from "../components/Loader";

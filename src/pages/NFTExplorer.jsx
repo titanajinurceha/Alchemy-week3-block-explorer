@@ -26,7 +26,7 @@ export default function NFTExplorer() {
         />
         <button
           onClick={() => fetchNFTs(address)}
-          className="bg-blue-600 text-white px-3 py-2 rounded"
+          className="bg-blue-700 text-white px-3 py-2 rounded"
         >
           Search
         </button>

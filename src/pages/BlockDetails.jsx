@@ -31,7 +31,7 @@ export default function BlockDetails() {
       <h2 className="text-xl font-bold mb-3">Block {block.number}</h2>
       <p><strong>Hash:</strong> {block.hash}</p>
       <p><strong>Timestamp:</strong> {new Date(block.timestamp * 1000).toLocaleString()}</p>
-      <h3 className="mt-4 font-semibold">Transactions:</h3>
+      <h3 className="mt-8 mb-4 text-xl font-semibold">Transactions:</h3>
       {block.transactions.slice(0, 10).map((tx) => (
         <TransactionCard key={tx.hash} tx={tx} />
       ))}

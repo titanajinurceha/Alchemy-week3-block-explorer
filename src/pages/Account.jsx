@@ -52,12 +52,12 @@ export default function Account() {
         placeholder="Enter Ethereum address"
         value={address}
         onChange={(e) => setAddress(e.target.value.trim())}
-        className="border px-2 py-1 rounded w-full mb-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="border-2 border-gray-500 px-4 py-2 rounded w-full mb-5 focus:outline-none focus:ring-2 focus:ring-gray-200"
       />
 
       <button
         onClick={() => fetchBalance(address)}
-        className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition"
+        className="bg-blue-700 text-white px-3 py-1 rounded hover:bg-blue-800 transition"
       >
         Check Balance
       </button>
@@ -68,7 +68,7 @@ export default function Account() {
       {hasSubmitted && error && <p className="text-red-500 mt-2">{error}</p>}
       {!loading && !error && balance && (
         <>
-          <div className="mt-3 p-3 border rounded">
+          <div className="mt-3 p-3 border rounded border-gray-500">
             <p>
               <strong>Address:</strong> {address}
             </p>

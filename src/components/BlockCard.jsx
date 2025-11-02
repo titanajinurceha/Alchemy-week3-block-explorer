@@ -8,7 +8,7 @@ export default function BlockCard({ block }) {
       <p><strong>Transactions:</strong> {block.transactions.length}</p>
       <Link
         to={`/block/${block.number}`}
-        className="text-blue-500 underline text-sm"
+        className="text-blue-700 underline text-sm"
       >
         View Details
       </Link>
