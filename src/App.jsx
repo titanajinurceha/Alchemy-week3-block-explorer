@@ -7,6 +7,8 @@ import NFTExplorer from "./pages/NFTExplorer";
 import PendingTracker from "./pages/PendingTracker";
 import Navbar from "./components/Navbar";
 import NftDetail from "./pages/NftDetail";
+import Footer from "./components/Footer";
+
 
 export default function App() {
   return (
@@ -24,6 +26,7 @@ export default function App() {
           <Route path="/pending" element={<PendingTracker />} />
         </Routes>
       </main>
+      <Footer/>
     </Router>
   );
 }

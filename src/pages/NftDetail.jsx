@@ -55,8 +55,8 @@ export default function NftDetail() {
   const title =
     nft.title ||
     nft.rawMetadata?.name ||
-    nft.contractMetadata?.name ||
-    "Untitled NFT";
+    nft.metadata?.name ||
+    `${nft.contract?.name || "NFT"} #${tokenId}`;
 
   const imageUrl =
     nft.media?.[0]?.gateway ||
@@ -65,54 +65,53 @@ export default function NftDetail() {
       : null);
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <button
-        onClick={() => navigate(-1)}
-        className="mb-4 bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-800"
-      >
-        ← Back
-      </button>
+    <div className="border border-[#e5e5e5] bg-[#fefefe] rounded-lg">
+      <div className="p-4 bg-[#fafafa] rounded-t-lg border-b border-[#e5e5e5] text-lg font-black">
+        <h1>NFT Detail</h1>
+      </div>
+      <div className="p-4 grid grid-cols-3 gap-x-4 gap-y-4">
+        <div className="col-span-2 pr-2">
+          <h2 className="text-lg font-semibold mb-3">{title}</h2>
 
-      <div className="border rounded p-4 shadow">
-        <h2 className="text-2xl font-semibold mb-3">{title}</h2>
+          <p>
+            <strong>Contract Address:</strong> {contractAddress}
+          </p>
+          <p>
+            <strong>Token ID:</strong> {tokenId}
+          </p>
+          <p className="mt-2">
+            <strong>Description:</strong>{" "}
+            {nft.description ||
+              nft.rawMetadata?.description ||
+              "No description available."}
+          </p>
 
-        {imageUrl ? (
-          <img src={imageUrl} alt={title} className="w-full rounded mb-4" />
-        ) : (
-          <div className="h-60 bg-gray-200 flex items-center justify-center rounded mb-4 text-gray-500">
-            No Image Available
-          </div>
-        )}
-
-        <p>
-          <strong>Contract Address:</strong> {contractAddress}
-        </p>
-        <p>
-          <strong>Token ID:</strong> {tokenId}
-        </p>
-        <p className="mt-2">
-          <strong>Description:</strong>{" "}
-          {nft.description ||
-            nft.rawMetadata?.description ||
-            "No description available."}
-        </p>
-
-        {/* Attributes */}
-        {nft.rawMetadata?.attributes?.length > 0 && (
-          <div className="mt-4">
-            <h3 className="text-lg font-semibold mb-2">Attributes</h3>
-            <div className="flex flex-wrap gap-2">
-              {nft.rawMetadata.attributes.map((attr, idx) => (
-                <div
-                  key={idx}
-                  className="border rounded px-3 py-1 bg-gray-50 text-sm"
-                >
-                  <strong>{attr.trait_type}:</strong> {attr.value}
-                </div>
-              ))}
+          {/* Attributes */}
+          {nft.rawMetadata?.attributes?.length > 0 && (
+            <div className="mt-4">
+              <h3 className="text-lg font-semibold mb-2">Attributes</h3>
+              <div className="flex flex-wrap gap-2">
+                {nft.rawMetadata.attributes.map((attr, idx) => (
+                  <div
+                    key={idx}
+                    className="border rounded px-3 py-1 bg-gray-50 text-sm"
+                  >
+                    <strong>{attr.trait_type}:</strong> {attr.value}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
+        <div className="">
+          {imageUrl ? (
+            <img src={imageUrl} alt={title} className="size-full rounded mb-4" />
+          ) : (
+            <div className="h-60 bg-gray-200 flex items-center justify-center rounded-lg mb-4 text-gray-500">
+              No Image Available
+            </div>
+          )}
+        </div>
 
         {/* Market Data */}
         <div className="mt-4 p-3 bg-gray-50 rounded">
@@ -122,6 +121,12 @@ export default function NftDetail() {
           </p>
         </div>
       </div>
+      <button
+        onClick={() => navigate(-1)}
+        className="mt-4 ml-2 bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-800"
+      >
+        ← Back
+      </button>
     </div>
   );
 }

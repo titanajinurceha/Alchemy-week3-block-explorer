@@ -1,7 +1,7 @@
 export default function ErrorMessage({ message }) {
   return (
-    <div className="text-red-500 bg-red-100 border border-red-300 p-3 rounded-md text-center">
-      {message}
+    <div className="text-[#171717] bg-[#fafafa] border border-red-400 p-3 rounded-md text-center">
+      <span className="text-red-600 font-medium">{message}</span>
     </div>
   );
 }

@@ -1,13 +1,17 @@
 @import "tailwindcss";
 :root {
-  /* Geist spacing scale (based on 8px grid) */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
+  /* Font families */
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "Geist Mono", monospace;
 
-  /* Geist typography scale */
+  /* === Spacing Scale (Geist 8px grid) === */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem;  /* 8px */
+  --space-md: 1rem;    /* 16px */
+  --space-lg: 1.5rem;  /* 24px */
+  --space-xl: 2rem;    /* 32px */
+
+  /* === Typography Scale === */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -15,14 +19,69 @@
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
   --text-3xl: 2rem;
+
+  /* === Light Theme Colors (Geist style) === */
+  --geist-background: #fafafa;
+  --geist-foreground: #171717;
+  --geist-muted: #666666;
+  --geist-border: #e5e5e5;
+  --geist-accent: #0070f3;
+  --geist-accent-hover: #0059c1;
+
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-sans);
+  font-size: var(--text-base);
   background-color: var(--geist-background);
   color: var(--geist-foreground);
   line-height: 1.6;
   margin: 0;
   padding: 0;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+
+/* Muted text */
+.text-muted {
+  color: var(--geist-muted);
+}
+
+/* Smooth transitions */
+*, *::before, *::after {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Container (for App.jsx main wrapper) */
+.container {
+  max-width: 1200px;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.skeleton-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  animation: shimmer 1.5s infinite;
 }
 
