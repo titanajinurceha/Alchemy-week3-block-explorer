@@ -8,6 +8,11 @@ if (!apiKey) {
   );
 }
 
+export const resolveIpfs = (url) =>
+  url?.startsWith("ipfs://")
+    ? url.replace("ipfs://", "https://ipfs.io/ipfs/")
+    : url;
+
 const settings = {
   apiKey: apiKey ?? "MISSING_KEY",
   network: Network.ETH_MAINNET,

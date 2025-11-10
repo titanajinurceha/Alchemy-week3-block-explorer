@@ -111,9 +111,9 @@ export default function NFTExplorer() {
                   </div>
                 )}
 
-                <p className="font-semibold truncate">{title}</p>
-                <p className="text-sm text-gray-500 truncate">
-                  Token ID: {tokenId ? tokenId.slice(0, 6) + "..." : "N/A"}
+                <p className="font-semibold font-mono text-sm px-2 mb-1 truncate">{title}</p>
+                <p className="text-sm text-gray-500 font-mono px-2 mb-1 truncate">
+                  Token ID: <span className="text-[#171717] font-medium">{tokenId ? tokenId.slice(0, 6) : "N/A"}</span>
                 </p>
               </div>
             );
